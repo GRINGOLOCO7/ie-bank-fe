@@ -10,9 +10,9 @@ on:
   workflow_dispatch:
 
 env:
-  FRONTEND_WEBAPP_DEV: jseijas-fe-dev
+  FRONTEND_WEBAPP_DEV: gringo-fe-dev  # this is the name of the webapp in Azure
 
-jobs:
+jobs: # build & deploy
   build:
     runs-on: ubuntu-latest
 
@@ -52,7 +52,7 @@ jobs:
       - uses: azure/login@v2
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-      
+
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
