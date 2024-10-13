@@ -1,3 +1,6 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
 name: ie-bank-frontend
 
 on:
@@ -7,9 +10,9 @@ on:
   workflow_dispatch:
 
 env:
-  FRONTEND_WEBAPP_DEV: gringo-fe-dev  # Name of the web app in Azure
+  FRONTEND_WEBAPP_DEV: gringo-fe-dev
 
-jobs: # Build & deploy
+jobs:
   build:
     runs-on: ubuntu-latest
 
@@ -25,14 +28,7 @@ jobs: # Build & deploy
       - name: npm install, build, and test
         run: |
           npm install
-          npm run build -- --mode development --dest dist-dev  ## This command will build the Vue.js app using .env.development variables into the dest-dev/ folder
-        env:
-          VUE_APP_ROOT_URL: ${{ secrets.VUE_APP_ROOT_URL }}  # Inject secret into build process
-          # Add more env variables as needed
-          DBUSER: ${{ secrets.DBUSER }}
-          DBPASS: ${{ secrets.DBPASS }}
-          DBHOST: ${{ secrets.DBHOST }}
-          DBNAME: ${{ secrets.DBNAME }}
+          npm run build -- --mode development --dest dist-dev ## this command will build the vue.js app using .env.development variables into the dest-div/ folder
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
