@@ -29,6 +29,10 @@ jobs: # Build & deploy
         env:
           VUE_APP_ROOT_URL: ${{ secrets.VUE_APP_ROOT_URL }}  # Inject secret into build process
           # Add more env variables as needed
+          DBUSER: ${{ secrets.DBUSER }}
+          DBPASS: ${{ secrets.DBPASS }}
+          DBHOST: ${{ secrets.DBHOST }}
+          DBNAME: ${{ secrets.DBNAME }}
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
