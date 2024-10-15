@@ -141,7 +141,6 @@
           <b-button type="submit" variant="outline-info">Submit</b-button>
         </b-form>
       </b-modal>
-      <!-- End of Modal for Create Account-->
       <!-- Start of Modal for Edit Account-->
       <b-modal
         ref="editAccountModal"
@@ -164,6 +163,21 @@
               required
             />
           </b-form-group>
+
+          <b-form-group
+            id="form-edit-balance-group"
+            label="Account Balance:"
+            label-for="form-edit-balance-input"
+          >
+            <b-form-input
+              id="form-edit-balance-input"
+              type="number"
+              v-model="editAccountForm.balance"
+              placeholder="Enter new balance"
+              required
+            />
+          </b-form-group>
+
           <b-button type="submit" variant="outline-info">Update</b-button>
         </b-form>
       </b-modal>
@@ -187,6 +201,9 @@ export default {
       editAccountForm: {
         id: "",
         name: "",
+        currency: "",
+        country: "",
+        balance: "",  // Add balance here
       },
       showMessage: false,
       message: "",
@@ -322,6 +339,7 @@ export default {
       this.editAccountForm.name = account.name;
       this.editAccountForm.currency = account.currency;
       this.editAccountForm.country = account.country;
+      this.editAccountForm.balance = account.balance;
 
     },
 
