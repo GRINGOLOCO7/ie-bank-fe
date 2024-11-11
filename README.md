@@ -187,3 +187,15 @@ view on going containers
 ```
 docker ps
 ```
+
+Build multistage docker image
+
+```
+docker build -t iebank-fe-nginx --build-arg MODE=development -f dockerfile-nginx .
+```
+
+run multistage docker image
+
+```
+docker run -d -p 8080:80 iebank-fe-nginx
+```
