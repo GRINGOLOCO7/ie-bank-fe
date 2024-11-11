@@ -148,7 +148,7 @@ Only `NODE_ENV`, `BASE_URL`, and variables that start with `VUE_APP_` will be st
 
 ## Continuos Delivery
 
-> Learn more: 
+> Learn more:
 > - [Vue Deployment on App Service Linux](https://azureossd.github.io/2022/02/11/Vue-Deployment-on-App-Service-Linux/)
 
 The file [`.github/workflows/ie-bank-frontend.yml`](.github\workflows\ie-bank-frontend.yml) contains the configuration for the CI/CD pipeline.
@@ -160,3 +160,30 @@ The workflow uses the following GitHub secrets:
 Secret name | Description | Learn more
 --- | --- | ---
 `AZURE_CREDENTIALS` | Azure credentials to authenticate to Azure via Service Principal | [Use the Azure login action with a service principal secret](https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure?tabs=azure-portal%2Clinux#use-the-azure-login-action-with-a-service-principal-secret)
+
+
+## Dooker
+
+build image
+
+```
+docker build -t iebank-fe-gringo --build-arg MODE=development -f dockerfile_simple .
+```
+
+run image
+
+```
+docker run -d -p 8080:8080 iebank-fe-gringo
+```
+
+view logs
+
+```
+docker logs <docker_containr_id>
+```
+
+view on going containers
+
+```
+docker ps
+```
