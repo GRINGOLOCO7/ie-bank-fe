@@ -173,7 +173,7 @@
               id="form-edit-balance-input"
               type="number"
               v-model="editAccountForm.balance"
-              placeholder="Enter new balance"
+              placeholder="Enter balance"
               required
             />
           </b-form-group>
